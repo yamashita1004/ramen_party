@@ -6,10 +6,57 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+   <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+       
 
+      <li>
+        <%= link_to "マイページ",  "", class: "nav-link text-dark" %>
+      </li>
+      <li>
+        <%= link_to "投稿一覧", ramens_path, class: "nav-link text-dark" %>
+      </li>
+      <li>
+        <%= link_to "新規投稿",  "", class: "nav-link text-dark" %>
+      </li>
+      <li>
+        <%= link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>
+      </li>
+
+
+      <% elsif admin_signed_in? %>
+      <li>
+        <%= link_to "会員一覧", "", class: "nav-link text-dark" %>
+      </li>
+      <li>
+        <%= link_to "投稿一覧", "", class: "nav-link text-dark"%>
+      </li>
+       <li>
+        <%= link_to "ジャンル一覧", "",  class: "nav-link text-dark"%>
+      </li>
+      <li>
+        <%= link_to "ログアウト", "", method: :delete, class: "nav-link text-dark" %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "投稿一覧",  ramens_path, class: "nav-link text-dark"%>
+      </li>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-dark"%>
+      </li>
+      <li>
+        <%= link_to "ログイン", user_session_path, class: "nav-link text-dark"%>
+      </li>
+
+      <% end %>
+      </ul>
+      </nav>
+    </header>
   <body>
     <%= yield %>
   </body>
