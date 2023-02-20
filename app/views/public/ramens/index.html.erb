@@ -1,2 +1,15 @@
 <h1>Public::Ramens#index</h1>
 <p>Find me in app/views/public/ramens/index.html.erb</p>
+<% @ramens.each do |ramen| %>
+ <%= image_tag ramen.get_image, size: "200x200" %>
+ <p>店名</p>
+  <span><%= ramen.name %></span>
+  <p>紹介文</p>
+  <span><%= ramen.introduction %></span>
+  <p>住所</p>
+  <p><%= ramen.address %></p>
+  <p>ユーザーネーム：<%= ramen.user.name %></p>
+
+
+
+<% end %>

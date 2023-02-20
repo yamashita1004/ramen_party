@@ -13,16 +13,16 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-       
+
 
       <li>
-        <%= link_to "マイページ",  "", class: "nav-link text-dark" %>
+        <%= link_to "マイページ",mypage_path , class: "nav-link text-dark" %>
       </li>
       <li>
         <%= link_to "投稿一覧", ramens_path, class: "nav-link text-dark" %>
       </li>
       <li>
-        <%= link_to "新規投稿",  "", class: "nav-link text-dark" %>
+        <%= link_to "新規投稿",  new_ramen_path , class: "nav-link text-dark" %>
       </li>
       <li>
         <%= link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>

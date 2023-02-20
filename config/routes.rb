@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  scope module: :public do
+  
+  
+   scope module: :public do
     root 'homes#top'
+     get '/users/quit' => 'users#quit'
+    patch 'users/out' => 'users#out'
+    get 'users/mypage' => 'users#show', as: 'mypage'
 
      resources :ramens ,only: [:new, :index, :show, :edit, :update, :destroy, :create]
+     resources :users , only: [ :edit, :update]
 
 
   end

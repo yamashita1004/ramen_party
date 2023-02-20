@@ -1,2 +1,10 @@
 <h1>Public::Ramens#show</h1>
 <p>Find me in app/views/public/ramens/show.html.erb</p>
+<%= image_tag @ramen.get_image, size: "200x200" %>
+      <%=  @ramen.user.name %>
+      <%=link_to @ramen.name, ramen_path(@ramen.id)%>
+      <%= @ramen.introduction %>
+      <%= @ramen.address %>
+
+      <%= link_to"Edit","edit_ramen_path", class:"btn btn-success"%></td>
+      <%= link_to"Destroy",ramen_path(@ramen.id), method: :delete,"data-confirm"=>"Are you sure?",class:"btn btn-danger" %>
