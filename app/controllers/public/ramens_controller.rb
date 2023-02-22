@@ -19,6 +19,7 @@ class Public::RamensController < ApplicationController
 
   def index
     @ramens = Ramen.all
+     @user = current_user
   end
 
   def show

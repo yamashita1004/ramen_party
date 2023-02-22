@@ -16,7 +16,7 @@
 
 
       <li>
-        <%= link_to "マイページ",mypage_path , class: "nav-link text-dark" %>
+        <%= link_to "マイページ",mypage_path(current_user.id) , class: "nav-link text-dark" %>
       </li>
       <li>
         <%= link_to "投稿一覧", ramens_path, class: "nav-link text-dark" %>

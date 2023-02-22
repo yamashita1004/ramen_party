@@ -1,10 +1,14 @@
 <h1>Public::Ramens#show</h1>
 <p>Find me in app/views/public/ramens/show.html.erb</p>
 <%= image_tag @ramen.get_image, size: "200x200" %>
-      <%=  @ramen.user.name %>
-      <%=link_to @ramen.name, ramen_path(@ramen.id)%>
-      <%= @ramen.introduction %>
-      <%= @ramen.address %>
+     <p>ユーザー名</p>
+     <p> <%=  link_to @ramen.user.name,mypage_path %></p>
+     <p>店舗名</p>
+      <p><%= @ramen.name %></p>
+      <p>紹介文</p>
+      <p><%= @ramen.introduction %></p>
+      <p>住所</p>
+      <p><%= @ramen.address %></p>
 
-      <%= link_to"Edit","edit_ramen_path", class:"btn btn-success"%></td>
+      <%= link_to"Edit",edit_ramen_path(@ramen.id), class:"btn btn-success"%></td>
       <%= link_to"Destroy",ramen_path(@ramen.id), method: :delete,"data-confirm"=>"Are you sure?",class:"btn btn-danger" %>
