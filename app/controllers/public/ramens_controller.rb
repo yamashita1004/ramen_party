@@ -8,11 +8,11 @@ class Public::RamensController < ApplicationController
     @ramen.user_id = current_user.id
     if @ramen.save
       flash[:notice] = "You have created ramen successfully."
-    redirect_to ramens_path
+    redirect_to public_ramens_path
     else
     @ramens = Ramen.all
     @user = current_user
-    render new_ramen_path
+    render new_public_ramen_path
     end
    end
 
@@ -20,6 +20,7 @@ class Public::RamensController < ApplicationController
   def index
     @ramens = Ramen.all
      @user = current_user
+
   end
 
   def show
@@ -34,16 +35,16 @@ class Public::RamensController < ApplicationController
     @ramen=Ramen.find(params[:id])
     if @ramen.update(ramen_params)
       flash[:notice]="You have updated book successfully."
-      redirect_to ramen_path(@ramen.id)
+      redirect_to public_ramen_path(@ramen.id)
     else
-      render ramens_path
+      render public_ramens_path
     end
   end
 
   def destroy
     ramen = Ramen.find(params[:id])
     ramen.destroy
-    redirect_to ramens_path
+    redirect_to public_ramens_path
   end
 
   private
@@ -53,6 +54,6 @@ class Public::RamensController < ApplicationController
   def correct_user
     @ramen = Ramen.find(params[:id])
     @user = @ramen.user
-    redirect_to(books_path) unless @user == current_user
+    redirect_to(public_ramens_path) unless @user == current_user
   end
 end

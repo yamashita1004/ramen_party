@@ -21,7 +21,7 @@
 <h1>Editing ramen</h1>
 
 
-<%= form_with model: @ramen, url: ramen_path(@ramen.id) do |f|  %>
+<%= form_with model: @ramen, url: public_ramen_path(@ramen.id) do |f|  %>
 <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
 <h4>店名</h4>
@@ -35,7 +35,7 @@
 <%= f.submit 'Update ramen', class: " btn btn-secondary" %>
 
 <% end %>
-<%= link_to "Show",ramen_path(@ramen.id) %>
+<%= link_to "Show",public_ramen_path(@ramen.id) %>
  |
 <%= link_to "Back", "" %>
    </div>

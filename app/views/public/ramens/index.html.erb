@@ -3,7 +3,7 @@
 <% @ramens.each do |ramen| %>
  <%= image_tag ramen.get_image, size: "200x200" %>
  <p>店名</p>
-  <span><%= link_to ramen.name, ramen_path(ramen.id) %></span>
+  <span><%= link_to ramen.name, public_ramen_path(ramen.id) %></span>
 
   <p>ユーザーネーム：<%= ramen.user.name %></p>
 

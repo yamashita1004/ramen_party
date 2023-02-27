@@ -1,6 +1,6 @@
 
 <h1>新規投稿</h1>
-<%= form_with model: @ramen, url: ramens_path do |f| %>
+<%= form_with model: @ramen, url: public_ramens_path do |f| %>
  <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
   <h4>店名</h4>

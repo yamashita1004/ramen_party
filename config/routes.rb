@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
 
 
-   scope module: :public do
+   namespace :public do
     root 'homes#top'
-     get 'users/mypage' => 'users#show', as: 'mypage'
-    # customers/editのようにするとdeviseのルーティングとかぶってしまうためinformationを付け加えている。
-    get 'uses/information/edit' => 'users#edit', as: 'edit_information'
-    patch 'uses/information' => 'users#update', as: 'update_information'
-    get 'users/quit' => 'users#quit', as: 'confirm_quit'
-    put 'users/information' => 'users#update'
-    patch 'users/out' => 'users#out', as: 'out_user'
+    get '/users/quit' => 'users#quit'
+    patch 'users/out' => 'users#out'
+    resources :users, only: [:index, :show, :edit, :update,]
 
 
      resources :ramens ,only: [:new, :index, :show, :edit, :update, :destroy, :create]

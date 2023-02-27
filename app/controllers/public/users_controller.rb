@@ -1,11 +1,19 @@
 class Public::UsersController < ApplicationController
   def index
-   @ramens = Ramen.all
-    @user = User.find(params[:id])
-  end
-  def show
+    @ramens = Ramen.all
     @users = User.all
-  
+    
+  end
+   def create
+
+
+    @user.save
+    flash[:notice] = "You have updated user successfully."
+    redirect_to public_user_path(@user.id)
+   end
+
+  def show
+     @user = User.find(params[:id])
   end
 
   def edit
@@ -13,8 +21,8 @@ class Public::UsersController < ApplicationController
   end
   def update
    @user = User.find(params[:id])
-   user.update(user_params)
-   redirect_to mypage_path(user.id)
+   @user.update(user_params)
+   redirect_to  public_user_path(@user.id)
   end
   def quit
    @user = current_user
@@ -29,7 +37,7 @@ class Public::UsersController < ApplicationController
   end
   private
   def user_params
-    params.require(:user).permit(:name,:introduction)
+    params.require(:user).permit(:name,:introduction, :image)
   end
-  
+
 end

@@ -16,13 +16,13 @@
 
 
       <li>
-        <%= link_to "マイページ",mypage_path(current_user.id) , class: "nav-link text-dark" %>
+        <%= link_to "マイページ",public_user_path(current_user.id), class: "nav-link text-dark" %>
       </li>
       <li>
-        <%= link_to "投稿一覧", ramens_path, class: "nav-link text-dark" %>
+        <%= link_to "投稿一覧", public_ramens_path, class: "nav-link text-dark" %>
       </li>
       <li>
-        <%= link_to "新規投稿",  new_ramen_path , class: "nav-link text-dark" %>
+        <%= link_to "新規投稿",  new_public_ramen_path , class: "nav-link text-dark" %>
       </li>
       <li>
         <%= link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>
