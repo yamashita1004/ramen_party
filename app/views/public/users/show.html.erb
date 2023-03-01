@@ -14,6 +14,14 @@
                     <% if user_signed_in? && current_user.id == @user.id %>
                     <%= link_to"Edit",edit_public_user_path(@user.id), class:"btn btn-success"%></td>
                      <% end %>
-                     <%= link_to "投稿一覧", public_users_path %>
+
              </table>
+
+                   <%= image_tag @ramen.get_image, size: "200x200" %>
+                   <p>店名</p>
+                    <span><%=  @ramen.name%></span>
+
+                    <p>ユーザーネーム：<%= @ramen.user.name %></p>
+
+
 

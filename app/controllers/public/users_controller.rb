@@ -1,8 +1,6 @@
 class Public::UsersController < ApplicationController
   def index
-    @ramens = Ramen.all
-    @users = User.all
-    
+      @ramen = Ramen.all
   end
    def create
 
@@ -14,6 +12,7 @@ class Public::UsersController < ApplicationController
 
   def show
      @user = User.find(params[:id])
+     @ramen = Ramen.find(params[:id])
   end
 
   def edit
