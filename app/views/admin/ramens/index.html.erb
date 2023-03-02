@@ -1,0 +1,12 @@
+<h1>投稿一覧</h1>
+
+<% @ramens.each do |ramen| %>
+ <%= image_tag ramen.get_image, size: "200x200" %>
+ <p>店名</p>
+  <span><%= link_to ramen.name, admin_ramen_path(ramen.id) %></span>
+
+  <p>ユーザーネーム：<%= ramen.user.name %></p>
+
+
+
+<% end %>

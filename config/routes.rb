@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+
+    resources :ramens, only: [:index, :show, :edit, :destroy]
+    delete '/ramens/destroy_all' => 'ramens#destroy_all', as: 'destroy_all_ramens'
+    resources :users, only: [:index, :show, :edit]
+  end
    namespace :public do
     root 'homes#top'
     get '/users/quit' => 'users#quit'

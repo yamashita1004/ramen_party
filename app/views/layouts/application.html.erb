@@ -13,8 +13,6 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-
-
       <li>
         <%= link_to "マイページ",public_user_path(current_user.id), class: "nav-link text-dark" %>
       </li>
@@ -31,16 +29,16 @@
 
       <% elsif admin_signed_in? %>
       <li>
-        <%= link_to "会員一覧", "", class: "nav-link text-dark" %>
+        <%= link_to "会員一覧", admin_users_path, class: "nav-link text-dark" %>
       </li>
       <li>
-        <%= link_to "投稿一覧", "", class: "nav-link text-dark"%>
+        <%= link_to "投稿一覧",admin_ramens_path , class: "nav-link text-dark"%>
       </li>
        <li>
         <%= link_to "ジャンル一覧", "",  class: "nav-link text-dark"%>
       </li>
       <li>
-        <%= link_to "ログアウト", "", method: :delete, class: "nav-link text-dark" %>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %>
       </li>
       <% else %>
       <li>

@@ -1,0 +1,8 @@
+
+<p>ユーザー投稿一覧</p>
+<% @users.each do |user| %>
+ <%= image_tag user.get_image, size: "200x200" %>
+ <p>name</p>
+  <p><%= link_to user.name, admin_user_path(user.id) %></p>
+
+<% end %>

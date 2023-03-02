@@ -1,0 +1,12 @@
+      <th>会員ID</th>
+      <td><%= @user.id %></td>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+      <th>紹介文</th>
+      <th><%= @user.introduction %></th>
+      <p>会員ステータス</p>
+      <% if @user.is_deleted  %>
+      <p class="text-secondary">無効</p></br>
+      <% else %>
+      <p class="text-success">有効</p></br>
+      <% end %>
