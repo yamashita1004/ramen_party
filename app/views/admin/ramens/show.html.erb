@@ -9,4 +9,4 @@
       <p><%= @ramen.address %></p>
 
       <%= link_to"コメント削除",edit_admin_ramen_path(@ramen.id), class:"btn btn-success"%></td>
-      <%= link_to"全削除", admin_destroy_all_ramens_path(@ramen.id), method: :delete,"data-confirm"=>"Are you sure?",class:"btn btn-danger" %>
+      <%= link_to"全削除", admin_ramen_path(@ramen.id), method: :delete,"data-confirm"=>"Are you sure?",class:"btn btn-danger" %>
