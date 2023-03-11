@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update,]
 
 
-     resources :ramens ,only: [:new, :index, :show, :edit, :update, :destroy, :create]
+     resources :ramens ,only: [:new, :index, :show, :edit, :update, :destroy, :create] do
+     resources :post_comments, only: [:create]
+     end
 
 
 

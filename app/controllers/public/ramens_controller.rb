@@ -25,6 +25,7 @@ class Public::RamensController < ApplicationController
 
   def show
     @ramen = Ramen.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -49,7 +50,7 @@ class Public::RamensController < ApplicationController
 
   private
   def ramen_params
-    params.require(:ramen).permit(:name, :introduction, :image, :address)
+    params.require(:ramen).permit(:name, :introduction, :image, :address,:genre)
   end
   def correct_user
     @ramen = Ramen.find(params[:id])

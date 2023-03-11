@@ -11,7 +11,8 @@
   <h4>住所</h4>
   <%= f.text_field :address %>
   <h4>ジャンル</h4>
-
+  <%= form.label :genre %>
+  <%= form.select :genre, ['豚骨', 'みそ', '醤油','塩','二郎系','家系','牛骨','つけ麺','中華系','豚骨醤油'], {include_blank: '---'} %>
 
   <%= f.submit '投稿' %>
 <% end %>

@@ -12,7 +12,8 @@ class Public::UsersController < ApplicationController
 
   def show
      @user = User.find(params[:id])
-     @ramen = Ramen.find(params[:id])
+     @ramens = @user.ramens
+     #byebug
   end
 
   def edit

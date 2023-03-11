@@ -16,12 +16,14 @@
                      <% end %>
 
              </table>
-
-                   <%= image_tag @ramen.get_image, size: "200x200" %>
+              <% @ramens.each do |ramen| %>
+                   <%= image_tag ramen.get_image, size: "200x200" %>
                    <p>店名</p>
-                    <span><%=  @ramen.name%></span>
+                    <span><%=  ramen.name%></span>
 
-                    <p>ユーザーネーム：<%= @ramen.user.name %></p>
+                    <p>ユーザーネーム：<%= ramen.user.name %></p>
+
+              <% end %>
 
 
 
