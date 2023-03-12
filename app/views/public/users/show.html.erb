@@ -22,6 +22,7 @@
                     <span><%=  ramen.name%></span>
 
                     <p>ユーザーネーム：<%= ramen.user.name %></p>
+                    <p><%= link_to "#{ramen.post_comments.count} コメント",  public_ramen_path(ramen.id) %></p>
 
               <% end %>
 

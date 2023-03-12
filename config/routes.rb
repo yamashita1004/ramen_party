@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 
      resources :ramens ,only: [:new, :index, :show, :edit, :update, :destroy, :create] do
-     resources :post_comments, only: [:create]
+        resources :post_comments, only: [:create, :destroy]
      end
 
 
