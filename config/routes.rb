@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
-    resources :ramens, only: [:index, :show, :edit, :destroy]
+    resources :ramens, only: [:index, :show, :edit, :destroy] do
+    resources :post_comments, only: [:create, :destroy]
+  end
     delete '/ramens/destroy_all' => 'ramens#destroy_all', as: 'destroy_all_ramens'
     resources :users, only: [:index, :show, :edit]
   end

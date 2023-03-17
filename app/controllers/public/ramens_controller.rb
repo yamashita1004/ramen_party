@@ -18,9 +18,13 @@ class Public::RamensController < ApplicationController
 
 
   def index
-    @ramens = Ramen.all
-     @user = current_user
-
+    #paramsで送られてきたデータの取り出しをしている
+    if params[:genre].present?
+      @ramens = Ramen.where(genre: params[:genre])
+    else
+      @ramens = Ramen.all
+    end
+    @user = current_user
   end
 
   def show
