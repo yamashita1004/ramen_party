@@ -1,9 +1,10 @@
 <h1>投稿一覧</h1>
-
+<div class="col-md-6 mx-auto mt-5">
 <%= form_with url: public_ramens_path, method: :get do |f| %>
  <%= f.select :genre, options_for_select([["豚骨", "豚骨"],["みそ","みそ"],["醤油","醤油"],["塩","塩"],["二郎系","二郎系"],["家系","家系"],["牛骨","牛骨"],["つけ麺","つけ麺"],["中華系","中華系"]]) %>
  <%= f.submit "検索" %>
 <% end %>
+</div>
 
 <% @ramens.each do |ramen| %>
  <%= image_tag ramen.get_image, size: "200x200" %>
@@ -14,7 +15,4 @@
   <% if user_signed_in? && current_user.id == @user.id %>
    <p><%= link_to "#{ramen.post_comments.count} コメント",  public_ramen_path(ramen.id) %></p>
  <% end %>
-
-
-
 <% end %>

@@ -1,5 +1,4 @@
-
-<div class="col-md-3" >
+<div class="col-md-6 mx-auto mt-5">
         <h2>Users info</h2>
 
 
@@ -11,20 +10,24 @@
                    <tr>
                        <th>introduction</th><th><%= @user.introduction %></th>
                     </tr>
-                    <% if user_signed_in? && current_user.id == @user.id %>
-                    <%= link_to"Edit",edit_public_user_path(@user.id), class:"btn btn-success"%></td>
-                     <% end %>
+                   </div>
+                   
+                     <% if user_signed_in? && current_user.id == @user.id %>
+                       
+                         <%= link_to edit_public_user_path(@user.id), class: "btn btn-light btn-outline-secondary btn-block" do %>
+                            <i class="fas fa-user-cog"></i>
 
+                               <% end %>
+                                 <% end %>
              </table>
+             </div>
+             <div class="col-md-6 mx-auto mt-5">
               <% @ramens.each do |ramen| %>
                    <%= image_tag ramen.get_image, size: "200x200" %>
                    <p>店名</p>
                     <span><%=  ramen.name%></span>
 
                     <p>ユーザーネーム：<%= ramen.user.name %></p>
-                    <p><%= link_to "#{ramen.post_comments.count} コメント",  public_ramen_path(ramen.id) %></p>
 
-              <% end %>
-
-
-
+                    <% end %>
+             </div>
