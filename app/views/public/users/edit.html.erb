@@ -1,4 +1,6 @@
-
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
 <h1>Editing user</h1>
 
 
@@ -10,36 +12,14 @@
 <h4>プロフィール</h4>
   <%= f.text_area :introduction %>
 
-
+<p>
 <%= f.submit 'Update ', class: " btn btn-secondary" %>
-
+</p>
 <% end %>
 <%= link_to "Show",public_user_path(@user.id) %>
  |
  <%= link_to '退会する', public_users_quit_path, class:'btn btn-primary ml-5' %>
 
-
- <div class="container">
-  <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light py-4 mb-0">プロフィール編集</h5>
-      <div class="form-body p-4">
-        <%= form_with model: @user, url: public_user_path(@user.id) do |f|  %>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
-            </div>
-            <%= f.text_field :name,  class:"form-control", id:"inputName", placeholder:"名前"%>
-          </div>
-           <%= f.text_area :introduction %>
-          <div class="input-group my-3">
-            <label>
-            <%= f.attachment_field :image, placeholder: "プロフィール画像", class: "w-100" %>
-            </label>
-          </div>
-          <%= f.submit "変更を保存", class:"btn btn-lg btn-block btn-info mt-5" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
 </div>
