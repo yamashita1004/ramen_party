@@ -1,4 +1,4 @@
-<h1>投稿一覧</h1>
+<div clss ="main-container">
 <div class="col-md-6 mx-auto mt-5">
 <%= form_with url: public_ramens_path, method: :get do |f| %>
  <%= f.select :genre, options_for_select([["豚骨", "豚骨"],["みそ","みそ"],["醤油","醤油"],["塩","塩"],["二郎系","二郎系"],["家系","家系"],["牛骨","牛骨"],["つけ麺","つけ麺"],["中華系","中華系"]]) %>
@@ -6,13 +6,31 @@
 <% end %>
 </div>
 
-<% @ramens.each do |ramen| %>
- <%= image_tag ramen.get_image, size: "200x200" %>
- <p>店名</p>
-  <span><%= link_to ramen.name, public_ramen_path(ramen.id) %></span>
+<div class="card-list-container py-5">
+  <% @ramens.each do |ramen| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= link_to public_ramen_path(ramen.id) do %>
+      <%= image_tag ramen.get_image,   class:"card-img-top"; %>
+    <% end %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+          <%= image_tag ramen.user.get_image, size: "100x100"   %>
+        </div>
+        <div class="col-10">
+          <p class="card-title">
+            <%= link_to(public_ramen_path(ramen.id), class:"text-dark") do %>
+              <strong><i class="far fa-flag"></i><span> <%= ramen.name %></span></strong>
+            <% end %>
+          </p>
 
-  <p>ユーザーネーム：<%= ramen.user.name %></p>
-  <% if user_signed_in? && current_user.id == @user.id %>
-   <p><%= link_to "#{ramen.post_comments.count} コメント",  public_ramen_path(ramen.id) %></p>
- <% end %>
-<% end %>
+          <span><i class="fas fa-user"></i> By <%= ramen.user.name %> ｜ </span>
+          <span><%= link_to "#{ramen.post_comments.count} コメント", public_ramen_path(ramen.id), class:"text-dark" %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%#= paginate post_images %>
+</div>
+</div>

@@ -1,33 +1,49 @@
-<div class="col-md-6 mx-auto mt-5">
+<div class="container">
+  <div class="row">
+      <div class="col-lg-md-3">
         <h2>Users info</h2>
-
+          <tb><%= image_tag @user.get_image, size: "200x200" %></tb>
 
              <table class='table table-hover table-inverse'>
                <tr>
-                  <%= image_tag @user.get_image, size: "200x200" %>
                  <th>name</th><th><%=@user.name %></th>
                 </tr>
                    <tr>
-                       <th>introduction</th><th><%= @user.introduction %></th>
+                       <th>introduction</th><th><%= @user.introduction%></th>
                     </tr>
-                   </div>
-                   
-                     <% if user_signed_in? && current_user.id == @user.id %>
-                       
+              </table>
+                        <div class="row">
                          <%= link_to edit_public_user_path(@user.id), class: "btn btn-light btn-outline-secondary btn-block" do %>
                             <i class="fas fa-user-cog"></i>
 
                                <% end %>
-                                 <% end %>
-             </table>
-             </div>
-             <div class="col-md-6 mx-auto mt-5">
+                        </div>
+                         </div>
+
+            <div class="col-lg-9">
               <% @ramens.each do |ramen| %>
-                   <%= image_tag ramen.get_image, size: "200x200" %>
-                   <p>店名</p>
-                    <span><%=  ramen.name%></span>
-
-                    <p>ユーザーネーム：<%= ramen.user.name %></p>
-
-                    <% end %>
-             </div>
+              <div class="card w-50 mx-auto mt-4 shadow-lg">
+                <%= link_to public_ramen_path(ramen.id) do %>
+                  <%= image_tag ramen.get_image,   class:"card-img-top"; %>
+                <% end %>
+                <div class="card-body">
+                  <div class="row">
+                    
+                    <div class="col-10">
+                      <p class="card-title">
+                        <%= link_to(public_ramen_path(ramen.id), class:"text-dark") do %>
+                          <strong><i class="far fa-flag"></i><span> <%= ramen.name %></span></strong>
+                        <% end %>
+                      </p>
+                      <span><i class="fas fa-user"></i> By <%= ramen.user.name %> ｜ </span>
+                      <span><%= link_to "#{ramen.post_comments.count} コメント", public_ramen_path(ramen.id), class:"text-dark" %></span>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+              <%#= paginate post_images %>
+            </div>
+            </div>
+        </div>

@@ -4,7 +4,7 @@ class Public::PostCommentsController < ApplicationController
     comment = current_user.post_comments.new(post_comment_params)
     comment.ramen_id = ramen.id
     comment.save
-    redirect_to public_ramens_path(ramen)
+    redirect_to public_ramen_path(ramen.id)
   end
 
   def destroy
