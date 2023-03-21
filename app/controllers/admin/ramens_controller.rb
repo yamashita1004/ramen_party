@@ -1,6 +1,6 @@
 class Admin::RamensController < ApplicationController
   def index
-    @ramens = Ramen.page(params[:page])
+    @ramens = Ramen.all.page(params[:page])
 
   end
 
