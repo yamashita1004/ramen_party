@@ -1,12 +1,21 @@
-      <th>会員ID</th>
-      <td><%= @user.id %></td>
-      <th>名前</th>
-      <td><%= @user.name %></td>
-      <th>紹介文</th>
-      <th><%= @user.introduction %></th>
+<div class="container">
+  <div class="row">
+    <div class="col-4 mx-auto mb-5 admin-customer-show">
+          <h1>ユーザー詳細</h1>
+       <%= image_tag @user.get_image, size: "200x200" %>
+      <p>会員ID</p>
+      <p><%= @user.id %></p>
+      <p>名前</p>
+      <p><%= @user.name %></p>
+      <p>紹介文</p>
+      <p><%= @user.introduction %></p>
       <p>会員ステータス</p>
       <% if @user.is_deleted  %>
       <p class="text-secondary">無効</p></br>
       <% else %>
       <p class="text-success">有効</p></br>
       <% end %>
+
+       </div>
+     </div>
+    </div>

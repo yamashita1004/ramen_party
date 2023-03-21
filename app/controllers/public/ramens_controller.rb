@@ -22,7 +22,7 @@ class Public::RamensController < ApplicationController
     if params[:genre].present?
       @ramens = Ramen.where(genre: params[:genre])
     else
-      @ramens = Ramen.all
+      @ramens = Ramen.page(params[:page])
     end
     @user = current_user
   end

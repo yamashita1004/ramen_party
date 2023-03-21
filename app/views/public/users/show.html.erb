@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-      <div class="col-lg-md-3">
+      <div class="col-lg-4">
         <h2>Users info</h2>
           <tb><%= image_tag @user.get_image, size: "200x200" %></tb>
 
@@ -20,7 +20,7 @@
                         </div>
                          </div>
 
-            <div class="col-lg-9">
+            <div class="col-lg-8">
               <% @ramens.each do |ramen| %>
               <div class="card w-50 mx-auto mt-4 shadow-lg">
                 <%= link_to public_ramen_path(ramen.id) do %>
@@ -28,7 +28,7 @@
                 <% end %>
                 <div class="card-body">
                   <div class="row">
-                    
+
                     <div class="col-10">
                       <p class="card-title">
                         <%= link_to(public_ramen_path(ramen.id), class:"text-dark") do %>
@@ -37,7 +37,7 @@
                       </p>
                       <span><i class="fas fa-user"></i> By <%= ramen.user.name %> ｜ </span>
                       <span><%= link_to "#{ramen.post_comments.count} コメント", public_ramen_path(ramen.id), class:"text-dark" %></span>
-                      
+                      <div></div>
                     </div>
                   </div>
                 </div>

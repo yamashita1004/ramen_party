@@ -1,4 +1,4 @@
-
+<script src="https://kit.fontawesome.com/5426e91a66.js" crossorigin="anonymous"></script>
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
@@ -18,12 +18,15 @@
           <%= f.file_field :image, accept: "image/*", class: "w-100" %>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">
-              <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
+              <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-shop"></i></span>
             </div>
             <%= f.text_field :name , class:"form-control", placeholder:"店舗名" %>
               </div>
           <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"紹介文はここに" %>
          <div class="input-group mb-3 mt-4">
+           <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fa-sharp fa-solid fa-location-dot"></i></span>
+            </div>
            <%= f.text_field :address, class:"form-control", rows:"3", placeholder:"店舗住所" %>
            </div>
             <%= f.select :genre, ['豚骨', 'みそ', '醤油','塩','二郎系','家系','牛骨','つけ麺','中華系'], {include_blank: 'ジャンル'} %>

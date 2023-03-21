@@ -1,12 +1,11 @@
-<div clss ="main-container">
-<div class="col-md-6 mx-auto mt-5">
+<div class="card-list-container py-5">
+  <div clss ="main-container">
+<div class="ccard w-50 mx-auto mt-4 shadow-lg">
 <%= form_with url: public_ramens_path, method: :get do |f| %>
  <%= f.select :genre, options_for_select([["豚骨", "豚骨"],["みそ","みそ"],["醤油","醤油"],["塩","塩"],["二郎系","二郎系"],["家系","家系"],["牛骨","牛骨"],["つけ麺","つけ麺"],["中華系","中華系"]]) %>
- <%= f.submit "検索" %>
+ <%= f.submit "検索", class:"btn-info" %>
 <% end %>
 </div>
-
-<div class="card-list-container py-5">
   <% @ramens.each do |ramen| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to public_ramen_path(ramen.id) do %>
@@ -31,6 +30,6 @@
     </div>
   </div>
   <% end %>
-  <%#= paginate post_images %>
+  <%#= paginate ramens%>
 </div>
 </div>
