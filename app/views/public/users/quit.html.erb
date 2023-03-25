@@ -8,7 +8,7 @@
           これまでの閲覧履歴が閲覧できなくなります。</br>
           退会する場合は、「退会する」をクリックしてください。</br>
         </p>
-        <div class="mx-auto"><%= link_to '退会しない', public_root_path, class:'btn btn-primary offset-3' %>
+        <div class="mx-auto"><%= link_to '退会しない', edit_public_user_path(@user.id), class:'btn btn-primary offset-3' %>
         <%= link_to '退会する', public_users_out_path, method: :patch, "data-confirm"=>"退会してもよろしいですか?", class:'btn btn-danger' %></div>
     </div>
   </div>

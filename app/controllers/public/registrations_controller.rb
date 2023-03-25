@@ -65,7 +65,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
    end
     protected
    def after_sign_in_path_for(resource)
-   ramens_path
+   public_ramens_path
    end
 
    def after_sign_out_path_for(resource)

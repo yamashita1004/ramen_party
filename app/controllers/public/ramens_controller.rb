@@ -1,4 +1,5 @@
 class Public::RamensController < ApplicationController
+  before_action :authenticate_user!, except: [:top, :index]
   def new
     @ramen = Ramen.new
   end
@@ -20,7 +21,7 @@ class Public::RamensController < ApplicationController
   def index
     #paramsで送られてきたデータの取り出しをしている
     if params[:genre].present?
-      @ramens = Ramen.where(genre: params[:genre])
+      @ramens = Ramen.where(genre: params[:genre]).page(params[:page])
     else
       @ramens = Ramen.page(params[:page])
     end

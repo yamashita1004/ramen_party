@@ -10,8 +10,8 @@
         <div class="col-10">
           <p class="card-title">
             <%= link_to(public_ramen_path(@ramen.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span> <%=  link_to @ramen.user.name,public_user_path, class: "text-dark" %></span></strong>
-            <% end %>
+               <strong><i class="far fa-flag"></i><span> <%= @ramen.name %></span></strong>
+                 <% end %>
           </p>
           <p class="card-title">説明：<%= @ramen.introduction %></p>
            <p class="card-title">住所：<%= @ramen.address %></p>

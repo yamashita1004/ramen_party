@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   def index
-      @ramen = Ramen.all
+      @ramen = Ramen.all.page(params[:page])
   end
    def create
 
@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
 
   def show
      @user = User.find(params[:id])
-     @ramens = @user.ramens
+     @ramens = @user.ramens.page(params[:page])
      #byebug
   end
 
@@ -33,11 +33,12 @@ class Public::UsersController < ApplicationController
     @user.update(is_deleted: true)
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    redirect_to ramen_path
+    redirect_to public_root_path
   end
+
   private
   def user_params
-    params.require(:user).permit(:name,:introduction, :image)
+    params.require(:user).permit(:name,:introduction, :image, :email)
   end
 
 end

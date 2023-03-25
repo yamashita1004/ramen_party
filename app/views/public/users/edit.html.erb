@@ -13,19 +13,27 @@
             <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前"%>
           </div>
           <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+            </div>
+            <%= f.text_field :email, autofocus: true, class:"form-control", id:"email", placeholder:"メールアドレス"%>
+          </div>
+
+          <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-address-card"></i></span>
             </div>
-            <%= f.text_area :introduction, class:"form-control", id:"inputName", placeholder:"プロフィール"%>
+            <%= f.text_area :introduction, class:"form-control", id:"introduction", placeholder:"プロフィール"%>
           </div>
           <div class="input-group my-3">
             <label>
             <%= f.file_field :image, placeholder: "プロフィール画像", class: "w-100" %>
             </label>
           </div>
-          <%= link_to "Show",public_user_path(@user.id),class:'btn btn-primary '%> | <%= link_to '退会する', public_users_quit_path, class:'btn btn-danger' %>
-          <%= f.submit "変更を保存", class:"btn btn-lg btn-block btn-info mt-5" %>
+          <%= link_to "マイページ",public_user_path(@user.id),class:'btn btn-primary '%> | <%= link_to '退会する', public_users_quit_path, class:'btn btn-danger' %>
+          
         <% end %>
+
       </div>
     </div>
   </div>
