@@ -16,7 +16,9 @@
           <p class="card-title">説明：<%= @ramen.introduction %></p>
            <p class="card-title">住所：<%= @ramen.address %></p>
             <p class="card-title">ジャンル：<%= @ramen.genre %></p>
-          <span><i class="fas fa-user"></i> By <%= @ramen.user.name %> ｜ </span>
+          <span><i class="fas fa-user"></i> By <%= link_to(public_user_path(@ramen.user.id), class:"text-dark") do %>
+                                                 <%= @ramen.user.name %>｜ </span>
+                                                 <% end %>
           <span><i class="fa fa-calendar"></i> <%= @ramen.created_at.strftime('%Y/%m/%d') %> ｜ </span>
           <span><i class="fa fa-comment"></i> <%= link_to "#{@ramen.post_comments.count}", public_ramen_path(@ramen.id), class:"text-dark" %> ｜ </span>
 

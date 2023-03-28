@@ -31,6 +31,7 @@ class Public::RamensController < ApplicationController
   def show
     @ramen = Ramen.find(params[:id])
     @post_comment = PostComment.new
+    
   end
 
   def edit
