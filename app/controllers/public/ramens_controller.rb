@@ -23,7 +23,7 @@ class Public::RamensController < ApplicationController
     if params[:genre].present?
       @ramens = Ramen.where(genre: params[:genre]).page(params[:page])
     else
-      @ramens = Ramen.page(params[:page])
+      @ramens = Ramen.all
     end
     @user = current_user
   end
@@ -31,7 +31,7 @@ class Public::RamensController < ApplicationController
   def show
     @ramen = Ramen.find(params[:id])
     @post_comment = PostComment.new
-    
+
   end
 
   def edit
