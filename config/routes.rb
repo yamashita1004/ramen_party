@@ -29,7 +29,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 
      resources :ramens ,only: [:new, :index, :show, :edit, :update, :destroy, :create] do
-        resources :post_comments, only: [:create, :destroy]
+     resources :post_comments, only: [:create, :destroy]
      end
 
 
