@@ -13,10 +13,11 @@
                     </tr>
               </table>
                         <div class="row">
+                          <% if  @user == current_user %>
                          <%= link_to edit_public_user_path(@user.id), class: "btn btn-light btn-outline-secondary btn-block" do %>
                             <i class="fas fa-user-cog"></i>
-
-                               <% end %>
+                                   <% end %>
+                              <% end %>
                         </div>
                          </div>
 
